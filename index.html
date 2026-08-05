@@ -109,12 +109,13 @@ footer{border-top:1px solid var(--border);padding:36px 28px;max-width:1120px;mar
 .flinks button:hover,.flinks a:hover{color:var(--text)}
 .disc{background:rgba(245,158,11,.05);border-top:1px solid rgba(245,158,11,.1);padding:12px 24px;text-align:center;font-size:.71rem;color:var(--muted)}
 .disc strong{color:var(--yellow)}
-.sticky-back{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(10,16,32,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);height:52px;display:none;align-items:center;padding:0 20px;gap:12px}
-.sticky-back.visible{display:flex}
+.sticky-back{position:fixed;top:0;left:0;right:0;z-index:300;background:rgba(10,16,32,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);height:52px;align-items:center;padding:0 20px;gap:12px;opacity:0;pointer-events:none;transform:translateY(-100%)}
+.sticky-back.visible{opacity:1;pointer-events:auto;transform:translateY(0);display:flex}
 .sticky-back button{display:flex;align-items:center;gap:8px;background:none;border:none;color:var(--text);font-family:'Inter',sans-serif;font-size:.9rem;font-weight:600;cursor:pointer;padding:0;-webkit-tap-highlight-color:transparent}
 .sticky-back button:hover{color:var(--yellow)}
-.detail-wrap{max-width:820px;margin:0 auto;padding:32px 24px 80px}
-.back{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.88rem;font-weight:600;background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;margin-bottom:32px;padding:0;transition:color .2s;-webkit-tap-highlight-color:transparent}
+.detail-wrap{max-width:820px;margin:0 auto;padding:0 24px 80px}
+.detail-content{display:none}
+.back{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:.88rem;font-weight:600;background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;margin-bottom:24px;margin-top:24px;padding:0;transition:color .2s;-webkit-tap-highlight-color:transparent}
 .back:hover{color:var(--text)}
 .dh{display:flex;align-items:center;gap:18px;margin-bottom:24px;flex-wrap:wrap}
 .dtitle{font-size:clamp(1.6rem,4vw,2.3rem);font-weight:900;letter-spacing:-1px}
@@ -371,6 +372,16 @@ footer{border-top:1px solid var(--border);padding:36px 28px;max-width:1120px;mar
         <div class="steps-mini"><div class="sm"><span class="sn">1</span>Registrati dal link referral privato</div><div class="sm"><span class="sn">2</span>Deposita 105€ e fai 3 trade di XRP da 3€</div><div class="sm"><span class="sn">3</span>Ricevi 50€ in azioni e vendile</div></div>
         <button class="cta" onclick="event.stopPropagation();showPromo('traderepublic')">Guida completa →</button>
       </div>
+      <div class="card" data-cat="crypto" onclick="showPromo('okx')">
+        <div class="ct">
+          <div style="width:46px;height:46px;border-radius:12px;overflow:hidden;flex-shrink:0;min-width:46px"><img src="data:image/jpeg;base64,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" style="width:46px;height:46px;object-fit:cover;display:block" alt="okx"></div>
+          <span class="bon-off">⏸ Temporaneamente terminata</span>
+        </div>
+        <div><div class="bon">OKX</div><div class="btype">Exchange Crypto</div></div>
+        <div class="bval-box"><div class="bl">Bonus benvenuto + inviti</div><div class="bv">Fino a 200€ + 50€/invito</div></div>
+        <div class="steps-mini"><div class="sm"><span class="sn">1</span>Registrati dal link con la tua mail e installa l'app</div><div class="sm"><span class="sn">2</span>Completa KYC e deposita 105€ tramite bonifico</div><div class="sm"><span class="sn">3</span>Fai trading BTC/EUR fino al volume richiesto per il bonus</div></div>
+        <button class="cta" onclick="event.stopPropagation();showPromo('okx')">Guida completa →</button>
+      </div>
       <div class="card" data-cat="altro" onclick="showPromo('shein')">
         <div class="ct">
           <div style="width:46px;height:46px;border-radius:12px;overflow:hidden;flex-shrink:0;min-width:46px"><img src="data:image/jpeg;base64,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" style="width:46px;height:46px;object-fit:cover;display:block" alt="shein"></div>
@@ -462,6 +473,113 @@ footer{border-top:1px solid var(--border);padding:36px 28px;max-width:1120px;mar
       <h2>Cosa dicono di noi</h2>
     </div>
     <div style="display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:12px;scrollbar-width:none;-ms-overflow-style:none" id="reviews-scroll">
+<div style="flex:0 0 275px;background:#0F1A2E;border:1px solid #1E2A45;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;scroll-snap-align:start">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1E3A5F;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0">G</div>
+          <div>
+            <div style="font-size:.85rem;font-weight:700;color:#F0F4FF">Giorgia M.</div>
+            <div style="font-size:.7rem;color:#8896B0">05/08/2026</div>
+          </div>
+        </div>
+        <div style="color:#F59E0B;font-size:.78rem;letter-spacing:1px;flex-shrink:0">★★★★★</div>
+      </div>
+      <p style="font-size:.82rem;color:#8896B0;line-height:1.6;flex:1">"Grazie Gabbo, ho guadagnato i miei primi soldi con le promo. Sei una brava persona, continuerò a seguirti!"</p>
+    </div>
+<div style="flex:0 0 275px;background:#0F1A2E;border:1px solid #1E2A45;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;scroll-snap-align:start">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1E3A5F;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0">T</div>
+          <div>
+            <div style="font-size:.85rem;font-weight:700;color:#F0F4FF">Tommaso C.</div>
+            <div style="font-size:.7rem;color:#8896B0">27/07/2026</div>
+          </div>
+        </div>
+        <div style="color:#F59E0B;font-size:.78rem;letter-spacing:1px;flex-shrink:0">★★★★★</div>
+      </div>
+      <p style="font-size:.82rem;color:#8896B0;line-height:1.6;flex:1">"Buddybank pagato nei tempi, 50€ cash come promesso. Tutto preciso."</p>
+    </div>
+<div style="flex:0 0 275px;background:#0F1A2E;border:1px solid #1E2A45;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;scroll-snap-align:start">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1E3A5F;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0">P</div>
+          <div>
+            <div style="font-size:.85rem;font-weight:700;color:#F0F4FF">Paola R.</div>
+            <div style="font-size:.7rem;color:#8896B0">21/07/2026</div>
+          </div>
+        </div>
+        <div style="color:#F59E0B;font-size:.78rem;letter-spacing:1px;flex-shrink:0">★★★★★</div>
+      </div>
+      <p style="font-size:.82rem;color:#8896B0;line-height:1.6;flex:1">"Gabbo è sempre disponibile, risponde in pochi minuti anche nei weekend. Affidabile al 100%."</p>
+    </div>
+
+<div style="flex:0 0 275px;background:#0F1A2E;border:1px solid #1E2A45;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;scroll-snap-align:start">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1E3A5F;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0">N</div>
+          <div>
+            <div style="font-size:.85rem;font-weight:700;color:#F0F4FF">Noemi R.</div>
+            <div style="font-size:.7rem;color:#8896B0">17/07/2026</div>
+          </div>
+        </div>
+        <div style="color:#F59E0B;font-size:.78rem;letter-spacing:1px;flex-shrink:0">★★★★★</div>
+      </div>
+      <p style="font-size:.82rem;color:#8896B0;line-height:1.6;flex:1">"Ho preso il bonus isybank in pochi giorni, tutto come spiegato. Grazie!"</p>
+    </div>
+<div style="flex:0 0 275px;background:#0F1A2E;border:1px solid #1E2A45;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;scroll-snap-align:start">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1E3A5F;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0">R</div>
+          <div>
+            <div style="font-size:.85rem;font-weight:700;color:#F0F4FF">Riccardo D.</div>
+            <div style="font-size:.7rem;color:#8896B0">13/07/2026</div>
+          </div>
+        </div>
+        <div style="color:#F59E0B;font-size:.78rem;letter-spacing:1px;flex-shrink:0">★★★★★</div>
+      </div>
+      <p style="font-size:.82rem;color:#8896B0;line-height:1.6;flex:1">"Serio e puntuale, consiglio a tutti."</p>
+    </div>
+
+<div style="flex:0 0 275px;background:#0F1A2E;border:1px solid #1E2A45;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;scroll-snap-align:start">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1E3A5F;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0">S</div>
+          <div>
+            <div style="font-size:.85rem;font-weight:700;color:#F0F4FF">Stefano M.</div>
+            <div style="font-size:.7rem;color:#8896B0">03/07/2026</div>
+          </div>
+        </div>
+        <div style="color:#F59E0B;font-size:.78rem;letter-spacing:1px;flex-shrink:0">★★★★★</div>
+      </div>
+      <p style="font-size:.82rem;color:#8896B0;line-height:1.6;flex:1">"Canale serio, promo sempre verificate. Non mi ha mai deluso."</p>
+    </div>
+<div style="flex:0 0 275px;background:#0F1A2E;border:1px solid #1E2A45;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;scroll-snap-align:start">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1E3A5F;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0">I</div>
+          <div>
+            <div style="font-size:.85rem;font-weight:700;color:#F0F4FF">Irene B.</div>
+            <div style="font-size:.7rem;color:#8896B0">01/07/2026</div>
+          </div>
+        </div>
+        <div style="color:#F59E0B;font-size:.78rem;letter-spacing:1px;flex-shrink:0">★★★★★</div>
+      </div>
+      <p style="font-size:.82rem;color:#8896B0;line-height:1.6;flex:1">"Prima volta che faccio queste cose e tutto è andato liscio. Grazie Gabbo!"</p>
+    </div>
+<div style="flex:0 0 275px;background:#0F1A2E;border:1px solid #1E2A45;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;scroll-snap-align:start">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:36px;height:36px;border-radius:50%;background:#1E3A5F;display:flex;align-items:center;justify-content:center;font-size:.85rem;font-weight:800;color:#fff;flex-shrink:0">E</div>
+          <div>
+            <div style="font-size:.85rem;font-weight:700;color:#F0F4FF">Edoardo L.</div>
+            <div style="font-size:.7rem;color:#8896B0">29/06/2026</div>
+          </div>
+        </div>
+        <div style="color:#F59E0B;font-size:.78rem;letter-spacing:1px;flex-shrink:0">★★★★★</div>
+      </div>
+      <p style="font-size:.82rem;color:#8896B0;line-height:1.6;flex:1">"Fineco arrivati i 50€ cash netti, grazie Gabbo 🙏"</p>
+    </div>
+
 <div style="flex:0 0 275px;background:#0F1A2E;border:1px solid #1E2A45;border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;scroll-snap-align:start">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
         <div style="display:flex;align-items:center;gap:10px">
@@ -1860,7 +1978,7 @@ footer{border-top:1px solid var(--border);padding:36px 28px;max-width:1120px;mar
     </div>
     </div>
   </section>
-  <div class="disc"><strong>⚠️ Disclaimer:</strong> Questo sito raccoglie promo e bonus a scopo informativo. I link possono essere link referral. Non costituisce consulenza finanziaria. Verifica sempre i T&amp;C. Il gioco è vietato ai minori di 18 anni.</div>
+  <div class="disc"><strong>⚠️ Disclaimer:</strong> Questo sito raccoglie promo e bonus a scopo informativo. I link possono essere link referral. Non costituisce consulenza finanziaria. Verifica sempre i T&amp;C. Il gioco è vietato ai minori di 18 anni. — Questo sito non raccoglie dati personali e non utilizza cookie propri.</div>
   <footer>
     <div>
       <div class="fb"><img class="fli" src="https://yt3.googleusercontent.com/ytc/AIdro_m7QszSFQ9Ct2N4PQh8cVqTH8JlRAiltyJWUKqCQrb5=s176-c-k-c0x00ffffff-no-rj" alt="GP" onerror="this.style.display='none'"><span class="fn">GuadagnoPlus 📈</span></div>
@@ -1976,11 +2094,28 @@ footer{border-top:1px solid var(--border);padding:36px 28px;max-width:1120px;mar
     <div class="extra-box"><strong>💸 Dove si spende il bonus Tinaba?</strong><p>Il bonus è spendibile presso esercenti convenzionati Tinaba (Coop, Douglas, PosteMobile), per ricariche telefoniche, benzina e pagamenti PagoPa dall'app. Ogni bonus ha una scadenza indicata nell'app.</p></div><div class="extra-box"><strong>👥 Invita amici — 10€ o 20€ a testa</strong><p>Invitando amici guadagni 10€ per ogni utente base, 20€ per ogni utente premium. Massimo 200€/mese, 500€ totali.</p></div><div class="extra-box"><strong>💡 Vuoi convertire il bonus in cash?</strong><p>Se preferisci il contante al posto del credito Tinaba, scrivimi in privato: posso acquistare il tuo credito Tinaba.</p></div>
     <div class="note-box"><strong>📌 Note importanti:</strong> Il codice da inserire è VA7E4R. Il bonus ha una scadenza indicata nell'app — usalo prima che scada. I 20€ depositati sono subito riprelevabili.</div>
     <div class="cta-row"><a href="http://bit.ly/2EueBxs" target="_blank" rel="noopener" class="cta-main">Vai alla promo →</a></div></div>
+<div id="detail-okx" class="detail-content" style="display:none"><button class="back" onclick="showHome()">← Torna alle promo</button>
+    <div class="dh"><div style="width:70px;height:70px;border-radius:18px;overflow:hidden;flex-shrink:0;min-width:70px"><img src="data:image/jpeg;base64,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" style="width:70px;height:70px;object-fit:cover;display:block" alt="okx"></div><div><div class="dbadge"><span class="bon-off">⏸ Temporaneamente terminata</span></div><div class="dtitle">OKX</div><div class="dsub">Exchange Crypto</div></div></div>
+    <div class="big-bonus"><div><div class="bb-l">Bonus benvenuto + inviti</div><div class="bb-v">Fino a 200€ + 50€/invito</div></div><div class="bb-badge"><span class="d"></span>Promo verificata</div></div>
+    <div class="codice-box">🎁 Codice amico: <strong class="codice-val">43964658</strong></div>
+    <div class="meta-grid"><div class="meta-box"><h4>💰 Deposito richiesto</h4><p>105€ (subito riprelevabile)</p></div><div class="meta-box"><h4>⏱ Tempistica bonus</h4><p>Accredito istantaneo</p></div></div>
+    <div class="guide-box"><h3>📋 Guida passo per passo</h3>
+      <div class="step-big"><div class="sn-big">1</div><div><h4>Registrati dal link e installa l'app</h4><p>Clicca il link qui sotto, inserisci la tua email e registrati. Poi installa l'app OKX usando la stessa email inserita sul link.</p><a href="https://my.okx.com/it/join/43964658" target="_blank" rel="noopener" class="step-link-btn">Apri OKX →</a></div></div>
+      <div class="step-big"><div class="sn-big">2</div><div><h4>Completa la verifica identità (KYC)</h4><p>Carica documento d'identità fronte/retro e selfie. La verifica avviene in pochi minuti.</p></div></div>
+      <div class="step-big"><div class="sn-big">3</div><div><h4>Deposita 105€ tramite bonifico</h4><p>I 105€ sono subito riprelevabili in qualsiasi momento.</p></div></div>
+      <div class="step-big"><div class="sn-big">4</div><div><h4>Vai su Exchange e compra BTC/EUR</h4><p>Dalla pagina principale premi in alto a destra su EXCHANGE. Premi BTC/EUR → FAI TRADING → inserisci 105€ → ACQUISTA BTC.</p></div></div>
+      <div class="step-big"><div class="sn-big">5</div><div><h4>Rivendi e ripeti per raggiungere il volume</h4><p>Vendi tutto il BTC in euro e ripeti per raggiungere il volume: 200€ → 10€ | 1.000€ → 40€ | 10.000€ → 150€.</p></div></div>
+      <div class="step-big"><div class="sn-big">6</div><div><h4>Ricevi il bonus</h4><p>Il bonus viene accreditato al raggiungimento del volume richiesto.</p></div></div>
+    </div>
+    <div class="extra-box"><strong>💸 Struttura del bonus</strong><p>10€ con 200€ volume · 40€ con 1.000€ · 150€ con 10.000€. Per la task da 10.000€ considera circa 20€ di commissioni.</p></div>
+    <div class="extra-box"><strong>🔁 Hai già avuto OKX?</strong><p>Puoi rifarla con email diversa, numero diverso e documento diverso. Guadagni fino a 200€ anche rifacendola.</p></div>
+    <div class="note-box"><strong>📌 Note importanti:</strong> Codice amico: 43964658. I 105€ sono subito riprelevabili. Usa EXCHANGE (non Compra) per pagare meno commissioni.</div>
+    <div class="cta-row"><a href="https://t.me/Gabbs46" target="_blank" rel="noopener" class="cta-main">✈️ Telegram — link &amp; assistenza</a><a href="http://wa.me/393793355063" target="_blank" rel="noopener" class="cta-wa">💬 WhatsApp — link &amp; assistenza</a></div></div>
 <div id="detail-shein" class="detail-content" style="display:none"><button class="back" onclick="showHome()">← Torna alle promo</button>
     <div class="dh"><div style="width:70px;height:70px;border-radius:18px;overflow:hidden;flex-shrink:0;min-width:70px"><img src="data:image/jpeg;base64,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" style="width:70px;height:70px;object-fit:cover;display:block" alt="shein"></div><div><div class="dbadge"><span class="bon-on"><span class="d"></span>Attivo</span></div><div class="dtitle">SHEIN</div><div class="dsub">Shopping / Moda online</div></div></div>
     <div class="big-bonus"><div><div class="bb-l">Sconto primo ordine</div><div class="bb-v">Fino a 55€ di sconto</div></div><div class="bb-badge"><span class="d"></span>Promo verificata</div></div>
     <div class="codice-box">🎁 Codice da inserire: <strong class="codice-val">2a8pwyxu</strong></div>
-    <div class="meta-grid"><div class="meta-box"><h4>💰 Deposito richiesto</h4><p>0€ — nessun deposito</p></div><div class="meta-box"><h4>⏱ Tempistica bonus</h4><p>Accredito istantaneo</p></div></div>
+    <div class="meta-grid"><div class="meta-box"><h4>💰 Deposito richiesto</h4><p>0€ — nessun deposito</p></div><div class="meta-box"><h4>⏱ Tempistica bonus</h4><p>Entro 30 giorni</p></div></div>
     <div class="guide-box"><h3>📋 Guida passo per passo</h3><div class="step-big"><div class="sn-big">1</div><div><h4>Registrati con il link e crea un nuovo account</h4><p>Clicca il link qui sotto e crea un nuovo account SHEIN. Deve essere un account nuovo — non funziona su account già esistenti.</p><a href="https://onelink.shein.com/6/5oqc4sjdd7gg?shc=2_RLcV0cQNH8e&channel=copyInviteLink" target="_blank" rel="noopener" class="step-link-btn">Apri SHEIN →</a></div></div><div class="step-big"><div class="sn-big">2</div><div><h4>Inserisci il codice nella barra di ricerca</h4><p>Copia il codice 2a8pwyxu e incollalo esattamente nella barra di ricerca dell'app SHEIN. Dopodiché verrai portato automaticamente nella sezione Agevolazioni.</p></div></div><div class="step-big"><div class="sn-big">3</div><div><h4>Scegli i prodotti e applica gli sconti</h4><p>Nella sezione Agevolazioni puoi usare i prodotti suggeriti oppure cercarli manualmente nella barra di ricerca. Hai fino a 55€ di sconti da usare sul tuo primo ordine.</p></div></div></div>
     <div class="extra-box"><strong>⚠️ Non vedi la sezione Agevolazioni?</strong><p>Se la sezione Agevolazioni non appare: cancella cache e dati dell'app, oppure disinstalla e reinstalla SHEIN. Poi riprova dal link.</p></div><div class="extra-box"><strong>👥 Invita amici — 20€ a testa</strong><p>Puoi invitare amici e guadagnare 20€ per ogni persona che si registra e fa il primo ordine tramite il tuo link personale.</p></div>
     <div class="note-box"><strong>📌 Note importanti:</strong> Promo valida solo per nuovi account SHEIN. Il codice da inserire nella barra di ricerca è: 2a8pwyxu</div>
@@ -2038,8 +2173,7 @@ footer{border-top:1px solid var(--border);padding:36px 28px;max-width:1120px;mar
     <div class="extra-box"><strong>👥 Invita amici — 50€ a testa fino a 400€</strong><p>Per ogni amico che apre un conto CA con il tuo codice e completa la promo, ricevi 50€. Massimo 8 inviti (400€ totali).</p></div><div class="extra-box"><strong>⏳ Scadenza promo</strong><p>La promo è valida fino al 15/05/2026.</p></div>
     <div class="note-box"><strong>📌 Note importanti:</strong> La carta DEVE essere la Visa Debit Verde — non altri colori o tipologie. Il codice referral è personale: scrivimi per averlo. Se non hai 1€ per il bonifico di attivazione, scrivimi e te lo mando io.</div>
     <div class="cta-row"><a href="https://t.me/Gabbs46" target="_blank" rel="noopener" class="cta-main">✈️ Telegram — link &amp; assistenza</a><a href="http://wa.me/393793355063" target="_blank" rel="noopener" class="cta-wa">💬 WhatsApp — link &amp; assistenza</a></div></div></div>
-
-  <footer style="border-top:1px solid var(--border);padding:28px;max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
+</div><footer style="border-top:1px solid var(--border);padding:28px;max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px">
     <span style="font-size:.93rem;font-weight:800;color:var(--text)">GuadagnoPlus 📈</span>
     <div style="display:flex;gap:16px;flex-wrap:wrap;align-items:center">
       <button onclick="showHome('promo')" style="font-size:.77rem;color:var(--muted);background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif">Promo</button>
@@ -2082,12 +2216,15 @@ var _savedScrollY = 0;
 
 function showPromo(id) {
   _savedScrollY = window.scrollY;
-  document.querySelectorAll(".detail-content").forEach(function(el) { el.style.display = "none"; });
+  document.querySelectorAll(".detail-content").forEach(function(el) { el.style.display = "none"; el.style.height = ""; el.style.overflow = ""; });
   var t = document.getElementById("detail-" + id);
   if (!t) return;
   t.style.display = "block";
+  var bar = document.getElementById("sticky-back");
+  if (bar) bar.classList.remove("visible");
   document.getElementById("v-home").classList.remove("active");
   document.getElementById("v-detail").classList.add("active");
+  document.getElementById("v-detail").scrollTop = 0;
   window.scrollTo({top:0, behavior:"instant"});
 }
 
