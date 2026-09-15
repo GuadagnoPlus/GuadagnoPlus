@@ -103,7 +103,15 @@ h1 .y{background:linear-gradient(130deg,var(--yellow),#FCD34D);-webkit-backgroun
 .cbtn-tg{background:#2AABEE;color:#fff}.cbtn-ig{background:linear-gradient(135deg,#E1306C,#833AB4);color:#fff}.cbtn-wa{background:var(--wa);color:#fff}
 footer{border-top:1px solid var(--border);padding:36px 28px;max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
 .fb{display:flex;align-items:center;gap:9px}.fli{width:28px;height:28px;border-radius:7px;object-fit:cover}
-.fn{font-size:.93rem;font-weight:800}.fnote{font-size:.74rem;color:var(--muted);max-width:380px;margin-top:4px}
+.fn{font-size:.93rem;font-weight:800}.fnote{font-size:.74rem;color:var(--muted);max-width:420px;margin-top:6px;line-height:1.6}
+.footer-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:32px;margin-bottom:28px}
+.footer-brand{flex:1;min-width:240px;max-width:360px}
+.footer-cols{display:flex;gap:48px;flex-wrap:wrap}
+.footer-col{display:flex;flex-direction:column;gap:10px}
+.footer-col-title{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:4px}
+.footer-col button,.footer-col a{background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;color:var(--muted);font-size:.82rem;text-decoration:none;text-align:left;transition:color .2s;padding:0}
+.footer-col button:hover,.footer-col a:hover{color:var(--text)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:.72rem;color:#5a6a80}
 .flinks{display:flex;gap:16px;flex-wrap:wrap}
 .flinks button,.flinks a{font-size:.77rem;color:var(--muted);text-decoration:none;background:none;border:none;cursor:pointer;font-family:'Inter',sans-serif;transition:color .2s}
 .flinks button:hover,.flinks a:hover{color:var(--text)}
@@ -504,16 +512,32 @@ footer{border-top:1px solid var(--border);padding:36px 28px;max-width:1120px;mar
   </section>
   <div class="disc"><strong>⚠️ Disclaimer:</strong> Questo sito raccoglie promo e bonus a scopo informativo. I link possono essere link referral. Non costituisce consulenza finanziaria. Verifica sempre i T&amp;C. Il gioco è vietato ai minori di 18 anni. — Questo sito non raccoglie dati personali e non utilizza cookie propri.</div>
   <footer>
-    <div>
-      <div class="fb"><img class="fli" src="https://yt3.googleusercontent.com/ytc/AIdro_m7QszSFQ9Ct2N4PQh8cVqTH8JlRAiltyJWUKqCQrb5=s176-c-k-c0x00ffffff-no-rj" alt="GP" onerror="this.style.display='none'"><span class="fn">GuadagnoPlus 📈</span></div>
-      <div class="fnote">Aggiornato continuamente. Per link, codici e assistenza seguici su Telegram.</div>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="fb"><img class="fli" src="https://yt3.googleusercontent.com/ytc/AIdro_m7QszSFQ9Ct2N4PQh8cVqTH8JlRAiltyJWUKqCQrb5=s176-c-k-c0x00ffffff-no-rj" alt="GP" onerror="this.style.display='none'"><span class="fn">GuadagnoPlus 📈</span></div>
+        <div class="fnote">Il punto di riferimento italiano per promo, bonus e referral su App, Carte, Crypto e molto altro. Guide aggiornate e sempre verificate.</div>
+        <div class="fnote" style="margin-top:8px;font-size:.7rem"><strong style="color:var(--muted)">Disclaimer:</strong> GuadagnoPlus è un sito informativo. Non forniamo consulenza finanziaria. Le promozioni sono offerte di soggetti terzi. Alcuni link possono essere referral.</div>
+      </div>
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-col-title">NAVIGA</div>
+          <button onclick="showHome('promo')">Promo Attive</button>
+          <button onclick="showHome('faq')">FAQ</button>
+          <button onclick="showHome('contatti')">Contatti</button>
+          <button onclick="showHome('recensioni')">Recensioni</button>
+          <a href="https://t.me/GuadagnoPlus" target="_blank" rel="noopener">Canale Telegram</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">LEGALE</div>
+          <button onclick="openLegal('note')">Note legali</button>
+          <button onclick="openLegal('privacy')">Privacy Policy</button>
+          <button onclick="openLegal('cookie')">Cookie Policy</button>
+        </div>
+      </div>
     </div>
-    <div class="flinks">
-      <button onclick="showHome('promo')">Promo</button>
-      <button onclick="showHome('faq')">FAQ</button>
-      <button onclick="showHome('contatti')">Contatti</button>
-      <button onclick="showHome('recensioni')">Recensioni</button>
-      <a href="https://t.me/GuadagnoPlus" target="_blank" rel="noopener">Telegram</a>
+    <div class="footer-bottom">
+      <span>© 2024–2026 GuadagnoPlus. Tutti i diritti riservati.</span>
+      <span>Sito informativo — nessuna consulenza finanziaria</span>
     </div>
   </footer>
 </div>
@@ -753,6 +777,103 @@ function filter(cat, btn) {
 
 function toggleFaq(el) { el.parentElement.classList.toggle("open"); }
 
+var legalContent = {
+  note: "<div style=\"font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:8px\">INFORMATIVA</div><h2 style=\"font-size:1.8rem;font-weight:900;margin-bottom:24px\">Note legali</h2><h4 style=\"margin-bottom:6px\">1. Natura del sito</h4><p style=\"color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:18px\">GuadagnoPlus è un sito di natura <strong>puramente informativa e divulgativa</strong>. Ha lo scopo di raccogliere e presentare promozioni commerciali, bonus di benvenuto e programmi referral di operatori bancari, exchange cripto, broker e piattaforme fintech.</p><h4 style=\"margin-bottom:6px\">2. Assenza di consulenza</h4><p style=\"color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:18px\">GuadagnoPlus <strong>non fornisce alcuna forma di consulenza</strong> finanziaria, fiscale, legale o assicurativa. I contenuti pubblicati <strong>non costituiscono raccomandazioni di investimento</strong>.</p><h4 style=\"margin-bottom:6px\">3. Responsabilità</h4><p style=\"color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:18px\">Le promozioni descritte sono <strong>offerte di soggetti terzi</strong>. GuadagnoPlus non garantisce accuratezza o aggiornamento in tempo reale. L'utente deve verificare i termini sul sito del provider.</p><h4 style=\"margin-bottom:6px\">4. Link referral</h4><p style=\"color:var(--muted);font-size:.88rem;line-height:1.7\">Alcuni link possono essere <strong>link referral o di affiliazione</strong>. Questo non comporta alcun costo aggiuntivo per l'utente.</p>",
+  privacy: "<div style=\"font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:8px\">GDPR</div><h2 style=\"font-size:1.8rem;font-weight:900;margin-bottom:24px\">Privacy Policy</h2><p style=\"color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:18px\">Informativa ai sensi dell'art. 13 del Regolamento (UE) 2016/679 (GDPR).</p><h4 style=\"margin-bottom:6px\">Dati raccolti</h4><p style=\"color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:18px\">Questo sito è un file HTML statico. <strong>Non raccoglie, elabora né archivia dati personali.</strong> Non sono presenti form di registrazione, cookie di profilazione né sistemi di tracciamento.</p><h4 style=\"margin-bottom:6px\">Google Fonts</h4><p style=\"color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:18px\">Il font Inter è caricato da Google Fonts, che può trasferire l'indirizzo IP al server Google secondo la loro Privacy Policy.</p><h4 style=\"margin-bottom:6px\">Diritti dell'interessato</h4><p style=\"color:var(--muted);font-size:.88rem;line-height:1.7\">Puoi esercitare i diritti previsti dagli artt. 15-22 GDPR contattandoci tramite i recapiti nella sezione Contatti.</p>",
+  cookie: "<div style=\"font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--yellow);margin-bottom:8px\">COOKIE</div><h2 style=\"font-size:1.8rem;font-weight:900;margin-bottom:24px\">Cookie Policy</h2><p style=\"color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:18px\">GuadagnoPlus utilizza esclusivamente <strong>cookie tecnici strettamente necessari</strong> al funzionamento del sito. Non vengono installati cookie di profilazione né di terze parti a fini pubblicitari.</p><h4 style=\"margin-bottom:6px\">Cookie analitici</h4><p style=\"color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:18px\">Al momento non attivi. In caso di attivazione futura, saranno usati previa acquisizione del consenso.</p><h4 style=\"margin-bottom:6px\">Gestione</h4><p style=\"color:var(--muted);font-size:.88rem;line-height:1.7\">Puoi gestire o disabilitare i cookie in qualsiasi momento dalle impostazioni del tuo browser.</p>"
+};
+
+function openLegal(type) {
+  document.getElementById("legal-content").innerHTML = legalContent[type] || "";
+  document.getElementById("legal-overlay").style.display = "block";
+  document.body.style.overflow = "hidden";
+}
+function closeLegal() {
+  document.getElementById("legal-overlay").style.display = "none";
+  document.body.style.overflow = "";
+}
+document.addEventListener("keydown", function(e) { if(e.key==="Escape") closeLegal(); });
+
+var chatOpen = false;
+var chatMessages = [];
+
+function toggleChat() {
+  chatOpen = !chatOpen;
+  document.getElementById("chat-widget").style.display = chatOpen ? "flex" : "none";
+  document.getElementById("chat-btn").style.display = chatOpen ? "none" : "flex";
+  if (chatOpen && chatMessages.length === 0) {
+    addBotMsg("Ciao! Sono l'assistente di GuadagnoPlus. Posso aiutarti con informazioni sulle promo, i requisiti e i tempi di accredito. Come posso esserti utile?");
+  }
+}
+
+function addBotMsg(text) {
+  chatMessages.push({role:"bot", text:text});
+  renderChat();
+}
+
+function renderChat() {
+  var box = document.getElementById("chat-messages");
+  box.innerHTML = chatMessages.map(function(m) {
+    if (m.role === "bot") {
+      return "<div style=\"background:#1E2A45;border-radius:12px 12px 12px 4px;padding:12px 14px;font-size:.84rem;line-height:1.6;color:var(--text)\">" + m.text + "</div>";
+    } else {
+      return "<div style=\"background:var(--blue);border-radius:12px 12px 4px 12px;padding:12px 14px;font-size:.84rem;line-height:1.6;color:#fff;align-self:flex-end\">" + m.text + "</div>";
+    }
+  }).join("");
+  box.scrollTop = box.scrollHeight;
+}
+
+function sendChat() {
+  var input = document.getElementById("chat-input");
+  var text = input.value.trim();
+  if (!text) return;
+  input.value = "";
+  chatMessages.push({role:"user", text:text});
+  renderChat();
+  var box = document.getElementById("chat-messages");
+  var typing = document.createElement("div");
+  typing.id = "typing-indicator";
+  typing.style.cssText = "background:#1E2A45;border-radius:12px;padding:10px 14px;font-size:.84rem;color:var(--muted)";
+  typing.textContent = "...";
+  box.appendChild(typing);
+  box.scrollTop = box.scrollHeight;
+  setTimeout(function() {
+    var t = document.getElementById("typing-indicator");
+    if(t) t.remove();
+    addBotMsg(getReply(text));
+  }, 800);
+}
+
+function getReply(q) {
+  q = q.toLowerCase();
+  if (q.match(/buddybank|buddy/)) return "Il bonus Buddybank è di 50 euro cash. Devi aprire il conto con il codice invito, completare la verifica e fare un pagamento da 10 euro. Si consiglia il buono Amazon perché funziona meglio, ma va bene qualsiasi acquisto da 10 euro. Il bonus arriva entro 7 giorni. Per il codice scrivi tramite i contatti qui sotto.";
+  if (q.match(/isybank|isy/)) return "Con Isybank ricevi 7.600 isyToken, equivalenti a circa 30 euro, completamente gratis senza depositare nulla. Inserisci il codice FDRABGUOBK nella sezione isyReward dell'app. I token arrivano entro 7 giorni.";
+  if (q.match(/satispay/)) return "Con Satispay ottieni 15 euro istantanei: 5 euro da Satispay più 10 euro extra da parte di Gabbo. Basta registrarsi con il codice referral e fare una spesa da almeno 5 euro in un negozio partner o online.";
+  if (q.match(/bybit/)) return "Con Bybit EU puoi ottenere fino a 85 euro di bonus. Depositi 105 euro e li lasci sul conto per 7 giorni senza fare nulla. Il bonus arriva automaticamente dopo i 7 giorni.";
+  if (q.match(/bbva/)) return "Con BBVA ottieni 10 euro di bonus benvenuto. Devi aprire il conto con il codice invito, depositare almeno 1 euro e fare una piccola spesa con la carta virtuale. Il bonus arriva entro 2 giorni.";
+  if (q.match(/revolut/)) return "Con Revolut ottieni 25 euro totali: 20 euro da noi più 5 euro dai quiz crypto. Devi registrarti con il link referral, depositare 21 euro e fare 3 pagamenti entro 8 giorni.";
+  if (q.match(/credem/)) return "Con Credem ottieni un buono Amazon da 50 euro se hai meno di 30 anni, o da 25 euro se ne hai di più. Devi aprire il conto, aggiungere l'IBAN su Amazon e fare un acquisto pagando con il conto corrente.";
+  if (q.match(/credit.?agricole|crédit|ca /)) return "Con Crédit Agricole ottieni un buono Amazon da 50 euro. Apri il conto scegliendo la carta Visa verde, attiva i pagamenti online dall'app e fai un acquisto con la carta. Il buono arriva entro 4 mesi.";
+  if (q.match(/coinbase/)) return "Con Coinbase ottieni 20 euro di bonus. Depositi 23 euro, attivi la prova gratuita di Coinbase One e fai un trade da 23 euro comprando e rivendendo Bitcoin. Il bonus arriva entro 3 giorni.";
+  if (q.match(/robinhood/)) return "Con Robinhood ottieni 64 euro totali: 14 euro subito dai quiz educativi e 50 euro in crypto prelevabili dopo 180 giorni. Devi depositare 50 euro totali, anche in più volte.";
+  if (q.match(/sisal/)) return "Con Sisal ottieni fino a 50 euro di bonus istantaneo sul primo deposito. Deposita 25 euro e ricevi 50 euro da giocare. Richiede una sola giocata per sbloccarli.";
+  if (q.match(/hype/)) return "Con HYPE ottieni fino a 25 euro in base al piano scelto. Devi ricaricare 50 euro e spendere 50 euro con la carta entro 30 giorni dalla registrazione.";
+  if (q.match(/fineco/)) return "Con Fineco ottieni circa 47 euro netti. Depositi 25 euro e fai 5 acquisti separati di un ETF specifico. Il bonus lordo è tassato al 26% quindi netto ricevi circa 47 euro.";
+  if (q.match(/skrill/)) return "Con Skrill ottieni 35 euro istantanei. Devi registrarti con il link referral, verificare l'identità e fare un trasferimento da 135 euro verso un IBAN estero come Revolut o N26.";
+  if (q.match(/myfin/)) return "Con MyFin ottieni 10 euro di bonus. Inserisci il codice GA00S1NU durante la registrazione, deposita 11 euro e fai una transazione da 11 euro con la carta virtuale. Il bonus arriva spesso entro un'ora.";
+  if (q.match(/tinaba/)) return "Con Tinaba ottieni 10 euro di bonus. Installa l'app, inserisci il codice VA7E4R durante la registrazione e deposita 20 euro entro 30 giorni. Il bonus è immediato.";
+  if (q.match(/trade.?republic|tr /)) return "La promo Trade Republic è temporaneamente terminata. Torna a controllare il canale per sapere quando ritornerà attiva.";
+  if (q.match(/okx/)) return "La promo OKX è temporaneamente terminata. Puoi seguire il canale Telegram per essere avvisato quando torna disponibile.";
+  if (q.match(/shein/)) return "Con SHEIN ottieni fino a 55 euro di sconto sul primo ordine. Registrati con il link referral e inserisci il codice 2a8pwyxu nella barra di ricerca dell'app per accedere agli sconti.";
+  if (q.match(/legal[ei]|sicur|truffa|affidabil/)) return "Sì, tutti i bonus sono programmi promozionali ufficiali delle piattaforme. Non si tratta di truffe: le aziende pagano questi bonus per acquisire nuovi clienti, esattamente come fanno con la pubblicità tradizionale.";
+  if (q.match(/isee|dichiaraz|tasse|fisco/)) return "I conti aperti vanno dichiarati nel modello ISEE, ma se mantieni saldi bassi l'impatto è minimo. Per le tasse, i bonus italiani sono spesso già tassati alla fonte. Per situazioni specifiche ti consiglio di consultare un commercialista o un CAF.";
+  if (q.match(/costo|gratis|spendo|spesa/)) return "Molte promo sono completamente gratuite. Alcune richiedono un deposito minimo che però è sempre riprelevabile subito, quindi non perdi nulla. Il guadagno è il bonus che ricevi in più.";
+  if (q.match(/quanto.*guadagn|guadagno.*totale/)) return "Dipende da quante promo fai. Solo con le promo attive oggi puoi ottenere anche diverse centinaia di euro. Ogni promo ha il suo bonus indicato nella pagina dedicata.";
+  if (q.match(/come.*(funzion|inizi|fare|start)/)) return "Scegli una promo dalla lista, clicca su Guida completa e segui gli step indicati. Per i link o codici referral scrivi a Gabbo tramite i contatti qui sotto. Di solito bastano 5-10 minuti per registrarsi.";
+  if (q.match(/ciao|salve|buongiorno|buonasera|hey/)) return "Ciao! Come posso aiutarti? Puoi chiedermi informazioni su qualsiasi promo presente nel sito.";
+  return "Per questa domanda specifica ti consiglio di contattare direttamente Gabbo tramite i pulsanti qui sotto. Risponde sempre in pochi minuti.";
+}
+
 function toggleMenu() {
   var btn = document.getElementById("hamburger");
   var drop = document.getElementById("dropdown");
@@ -799,5 +920,43 @@ document.getElementById("v-detail").addEventListener("scroll", function() {
     Torna alle promo
   </button>
 </div>
+
+  <div id="legal-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:600;overflow-y:auto;padding:40px 16px" onclick="if(event.target===this)closeLegal()">
+    <div style="max-width:680px;margin:0 auto;background:#0F1A2E;border:1px solid var(--border);border-radius:20px;padding:40px 32px;position:relative">
+      <button onclick="closeLegal()" style="position:absolute;top:16px;right:20px;background:none;border:none;color:var(--muted);font-size:1.4rem;cursor:pointer">✕</button>
+      <div id="legal-content"></div>
+    </div>
+  </div>
+
+  <button id="chat-btn" onclick="toggleChat()" style="position:fixed;bottom:24px;right:24px;z-index:400;background:#0F1A2E;border:1px solid var(--border);border-radius:100px;padding:10px 18px;display:flex;align-items:center;gap:10px;cursor:pointer;font-family:'Inter',sans-serif;color:var(--text);font-size:.85rem;font-weight:600;box-shadow:0 4px 20px rgba(0,0,0,.4)">
+    <span style="width:8px;height:8px;background:#10B981;border-radius:50%;display:inline-block;animation:blink 1.8s infinite"></span>
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+    Assistenza
+  </button>
+
+  <div id="chat-widget" style="display:none;position:fixed;bottom:24px;right:24px;z-index:400;width:340px;max-height:520px;background:#0A1020;border:1px solid var(--border);border-radius:20px;flex-direction:column;box-shadow:0 8px 40px rgba(0,0,0,.6);overflow:hidden">
+    <div style="background:#0F1A2E;padding:14px 18px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border)">
+      <div style="display:flex;align-items:center;gap:10px">
+        <img src="data:image/png;base64,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" style="width:34px;height:34px;border-radius:50%;object-fit:cover;flex-shrink:0">
+        <div>
+          <div style="font-size:.88rem;font-weight:700">GuadagnoPlus AI</div>
+          <div style="font-size:.7rem;color:#10B981">● Rispondo subito</div>
+        </div>
+      </div>
+      <button onclick="toggleChat()" style="background:none;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;line-height:1">✕</button>
+    </div>
+    <div id="chat-messages" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;min-height:200px;max-height:280px"></div>
+    <div style="padding:8px 14px;display:flex;gap:8px;border-top:1px solid var(--border)">
+      <a href="https://t.me/Gabbs46" target="_blank" rel="noopener" style="flex:1;background:#2AABEE;color:#fff;font-weight:700;font-size:.72rem;padding:8px;border-radius:8px;text-decoration:none;text-align:center">✈️ Telegram</a>
+      <a href="http://wa.me/393793355063" target="_blank" rel="noopener" style="flex:1;background:#25D366;color:#fff;font-weight:700;font-size:.72rem;padding:8px;border-radius:8px;text-decoration:none;text-align:center">💬 WhatsApp</a>
+      <a href="https://www.instagram.com/guadagno.plus?igsh=NWxjdnNzczYybTFu" target="_blank" rel="noopener" style="flex:1;background:linear-gradient(135deg,#E1306C,#833AB4);color:#fff;font-weight:700;font-size:.72rem;padding:8px;border-radius:8px;text-decoration:none;text-align:center">📸 Instagram</a>
+    </div>
+    <div style="padding:12px 14px;border-top:1px solid var(--border);display:flex;gap:8px">
+      <input id="chat-input" type="text" placeholder="Scrivi la tua domanda..." onkeydown="if(event.key==='Enter')sendChat()" style="flex:1;background:#0F1A2E;border:1px solid var(--border);border-radius:9px;padding:9px 12px;color:var(--text);font-family:'Inter',sans-serif;font-size:.83rem;outline:none">
+      <button onclick="sendChat()" style="background:var(--yellow);border:none;border-radius:9px;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0A0E1A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      </button>
+    </div>
+  </div>
 </body>
 </html>
